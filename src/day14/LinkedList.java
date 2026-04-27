@@ -27,20 +27,29 @@ public class LinkedList<T> {
         }
     }
 
-    // Insert after given node
     public void insertAfter(Node<T> prevNode, T data) {
-
-        if (prevNode == null) {
-            return;
-        }
+        if (prevNode == null) return;
 
         Node<T> newNode = new Node<>(data);
-
         newNode.next = prevNode.next;
         prevNode.next = newNode;
 
         if (prevNode == tail) {
             tail = newNode;
+        }
+    }
+
+    // Delete first node
+    public void pop() {
+
+        if (head == null) {
+            return;
+        }
+
+        head = head.next;
+
+        if (head == null) {
+            tail = null;
         }
     }
 

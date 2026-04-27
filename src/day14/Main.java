@@ -6,12 +6,12 @@ public class Main {
 
         LinkedList<Integer> list = new LinkedList<>();
 
-        // Create 56 -> 70
         list.append(56);
+        list.append(30);
         list.append(70);
 
-        // Insert 30 after 56
-        list.insertAfter(list.head, 30);
+        // Delete first node
+        list.pop();
 
         list.printList();
     }
