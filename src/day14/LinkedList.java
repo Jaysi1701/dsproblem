@@ -44,17 +44,12 @@ public class LinkedList<T> {
 
         head = head.next;
 
-        if (head == null) {
-            tail = null;
-        }
+        if (head == null) tail = null;
     }
 
-    // Delete last node
     public void popLast() {
-
         if (head == null) return;
 
-        // only one node
         if (head.next == null) {
             head = tail = null;
             return;
@@ -68,6 +63,23 @@ public class LinkedList<T> {
 
         temp.next = null;
         tail = temp;
+    }
+
+    // Search node
+    public Node<T> search(T key) {
+
+        Node<T> temp = head;
+
+        while (temp != null) {
+
+            if (temp.data.equals(key)) {
+                return temp;
+            }
+
+            temp = temp.next;
+        }
+
+        return null;
     }
 
     public void printList() {

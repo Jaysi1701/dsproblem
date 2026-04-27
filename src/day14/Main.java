@@ -10,9 +10,12 @@ public class Main {
         list.append(30);
         list.append(70);
 
-        // Delete last node
-        list.popLast();
+        Node<Integer> foundNode = list.search(30);
 
-        list.printList();
+        if (foundNode != null) {
+            System.out.println("Node Found : " + foundNode.data);
+        } else {
+            System.out.println("Node Not Found");
+        }
     }
 }
