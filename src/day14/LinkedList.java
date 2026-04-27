@@ -29,7 +29,6 @@ public class LinkedList<T> {
         }
     }
 
-    // Print list
     public void printList() {
         Node<T> temp = head;
 
@@ -39,30 +38,5 @@ public class LinkedList<T> {
         }
 
         System.out.println("null");
-    }
-
-    // Delete first
-    public void pop() {
-        if (head != null)
-            head = head.next;
-    }
-
-    // Delete last
-    public void popLast() {
-        if (head == null) return;
-
-        if (head.next == null) {
-            head = null;
-            return;
-        }
-
-        Node<T> temp = head;
-
-        while (temp.next.next != null) {
-            temp = temp.next;
-        }
-
-        temp.next = null;
-        tail = temp;
     }
 }
