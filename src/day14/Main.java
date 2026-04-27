@@ -6,16 +6,17 @@ public class Main {
 
         LinkedList<Integer> list = new LinkedList<>();
 
+        // Create list
         list.append(56);
         list.append(30);
         list.append(70);
 
-        Node<Integer> foundNode = list.search(30);
+        // Search node 30
+        Node<Integer> node30 = list.search(30);
 
-        if (foundNode != null) {
-            System.out.println("Node Found : " + foundNode.data);
-        } else {
-            System.out.println("Node Not Found");
-        }
+        // Insert 40 after 30
+        list.insertAfter(node30, 40);
+
+        list.printList();
     }
 }
