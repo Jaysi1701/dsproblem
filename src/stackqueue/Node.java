@@ -1,4 +1,4 @@
-package day14;
+package stackqueue;
 
 public class Node<T> {
     T data;
