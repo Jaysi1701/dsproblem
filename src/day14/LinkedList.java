@@ -5,7 +5,6 @@ public class LinkedList<T> {
     Node<T> head;
     Node<T> tail;
 
-    // Add at beginning
     public void add(T data) {
         Node<T> newNode = new Node<>(data);
 
@@ -17,7 +16,6 @@ public class LinkedList<T> {
         }
     }
 
-    // Add at end
     public void append(T data) {
         Node<T> newNode = new Node<>(data);
 
@@ -25,6 +23,23 @@ public class LinkedList<T> {
             head = tail = newNode;
         } else {
             tail.next = newNode;
+            tail = newNode;
+        }
+    }
+
+    // Insert after given node
+    public void insertAfter(Node<T> prevNode, T data) {
+
+        if (prevNode == null) {
+            return;
+        }
+
+        Node<T> newNode = new Node<>(data);
+
+        newNode.next = prevNode.next;
+        prevNode.next = newNode;
+
+        if (prevNode == tail) {
             tail = newNode;
         }
     }
