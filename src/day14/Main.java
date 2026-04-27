@@ -10,8 +10,8 @@ public class Main {
         list.append(30);
         list.append(70);
 
-        // Delete first node
-        list.pop();
+        // Delete last node
+        list.popLast();
 
         list.printList();
     }

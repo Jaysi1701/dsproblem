@@ -39,18 +39,35 @@ public class LinkedList<T> {
         }
     }
 
-    // Delete first node
     public void pop() {
-
-        if (head == null) {
-            return;
-        }
+        if (head == null) return;
 
         head = head.next;
 
         if (head == null) {
             tail = null;
         }
+    }
+
+    // Delete last node
+    public void popLast() {
+
+        if (head == null) return;
+
+        // only one node
+        if (head.next == null) {
+            head = tail = null;
+            return;
+        }
+
+        Node<T> temp = head;
+
+        while (temp.next != tail) {
+            temp = temp.next;
+        }
+
+        temp.next = null;
+        tail = temp;
     }
 
     public void printList() {
