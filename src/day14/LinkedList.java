@@ -1,93 +1,41 @@
 package day14;
 
-public class LinkedList<T> {
+public class LinkedList<T extends Comparable<T>> {
 
     Node<T> head;
     Node<T> tail;
 
-    public void add(T data) {
+    // Sorted add
+    public void sortedAdd(T data) {
+
         Node<T> newNode = new Node<>(data);
 
+        // Empty list
         if (head == null) {
             head = tail = newNode;
-        } else {
+            return;
+        }
+
+        // Insert at beginning
+        if (data.compareTo(head.data) < 0) {
             newNode.next = head;
             head = newNode;
-        }
-    }
-
-    public void append(T data) {
-        Node<T> newNode = new Node<>(data);
-
-        if (head == null) {
-            head = tail = newNode;
-        } else {
-            tail.next = newNode;
-            tail = newNode;
-        }
-    }
-
-    public void insertAfter(Node<T> prevNode, T data) {
-        if (prevNode == null) return;
-
-        Node<T> newNode = new Node<>(data);
-        newNode.next = prevNode.next;
-        prevNode.next = newNode;
-
-        if (prevNode == tail) tail = newNode;
-    }
-
-    public Node<T> search(T key) {
-        Node<T> temp = head;
-
-        while (temp != null) {
-            if (temp.data.equals(key)) return temp;
-            temp = temp.next;
-        }
-
-        return null;
-    }
-
-    // Delete specific node
-    public void delete(T key) {
-
-        if (head == null) return;
-
-        // if first node
-        if (head.data.equals(key)) {
-            head = head.next;
             return;
         }
 
         Node<T> temp = head;
 
-        while (temp.next != null) {
-
-            if (temp.next.data.equals(key)) {
-                temp.next = temp.next.next;
-
-                if (temp.next == null)
-                    tail = temp;
-
-                return;
-            }
-
-            temp = temp.next;
-        }
-    }
-
-    // Count nodes
-    public int size() {
-
-        int count = 0;
-        Node<T> temp = head;
-
-        while (temp != null) {
-            count++;
+        while (temp.next != null &&
+                data.compareTo(temp.next.data) > 0) {
             temp = temp.next;
         }
 
-        return count;
+        newNode.next = temp.next;
+        temp.next = newNode;
+
+        if (newNode.next == null) {
+            tail = newNode;
+        }
     }
 
     public void printList() {
