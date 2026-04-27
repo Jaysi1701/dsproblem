@@ -34,55 +34,64 @@ public class LinkedList<T> {
         newNode.next = prevNode.next;
         prevNode.next = newNode;
 
-        if (prevNode == tail) {
-            tail = newNode;
-        }
+        if (prevNode == tail) tail = newNode;
     }
 
-    public void pop() {
-        if (head == null) return;
-
-        head = head.next;
-
-        if (head == null) tail = null;
-    }
-
-    public void popLast() {
-        if (head == null) return;
-
-        if (head.next == null) {
-            head = tail = null;
-            return;
-        }
-
-        Node<T> temp = head;
-
-        while (temp.next != tail) {
-            temp = temp.next;
-        }
-
-        temp.next = null;
-        tail = temp;
-    }
-
-    // Search node
     public Node<T> search(T key) {
-
         Node<T> temp = head;
 
         while (temp != null) {
-
-            if (temp.data.equals(key)) {
-                return temp;
-            }
-
+            if (temp.data.equals(key)) return temp;
             temp = temp.next;
         }
 
         return null;
     }
 
+    // Delete specific node
+    public void delete(T key) {
+
+        if (head == null) return;
+
+        // if first node
+        if (head.data.equals(key)) {
+            head = head.next;
+            return;
+        }
+
+        Node<T> temp = head;
+
+        while (temp.next != null) {
+
+            if (temp.next.data.equals(key)) {
+                temp.next = temp.next.next;
+
+                if (temp.next == null)
+                    tail = temp;
+
+                return;
+            }
+
+            temp = temp.next;
+        }
+    }
+
+    // Count nodes
+    public int size() {
+
+        int count = 0;
+        Node<T> temp = head;
+
+        while (temp != null) {
+            count++;
+            temp = temp.next;
+        }
+
+        return count;
+    }
+
     public void printList() {
+
         Node<T> temp = head;
 
         while (temp != null) {
