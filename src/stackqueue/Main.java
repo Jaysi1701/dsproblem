@@ -10,6 +10,12 @@ public class Main {
         stack.push(30);
         stack.push(56);
 
-        stack.printStack();
+        System.out.println("Peek = " + stack.peek());
+
+        while (!stack.isEmpty()) {
+            System.out.println("Popped = " + stack.pop());
+        }
+
+        System.out.println("Stack Empty");
     }
 }
