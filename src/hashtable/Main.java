@@ -22,6 +22,10 @@ public class Main {
             }
         }
 
+        // Remove avoidable
+        map.remove("avoidable");
+
+        // Print result
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + " = " + entry.getValue());
         }
