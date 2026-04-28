@@ -6,11 +6,17 @@ public class Main {
 
         BinarySearchTree bst = new BinarySearchTree();
 
-        bst.add(56);
-        bst.add(30);
-        bst.add(70);
+        int[] values = {
+                56,30,70,22,40,60,95,
+                11,65,3,16,63,67
+        };
 
-        System.out.println("Inorder Traversal:");
-        bst.printInOrder(bst.root);
+        for (int value : values) {
+            bst.add(value);
+        }
+
+        boolean found = bst.search(bst.root, 63);
+
+        System.out.println("Found = " + found);
     }
 }
