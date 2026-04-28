@@ -23,6 +23,15 @@ public class BinarySearchTree {
         return current;
     }
 
+    // Count total nodes
+    public int size(Node node) {
+
+        if (node == null)
+            return 0;
+
+        return 1 + size(node.left) + size(node.right);
+    }
+
     public void printInOrder(Node node) {
 
         if (node != null) {
