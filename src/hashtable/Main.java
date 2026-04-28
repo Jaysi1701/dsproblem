@@ -1,14 +1,15 @@
 package hashtable;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        String sentence = "To be or not to be";
+        String paragraph = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
 
-        String[] words = sentence.toLowerCase().split(" ");
+        String[] words = paragraph.toLowerCase().split(" ");
 
         HashMap<String, Integer> map = new HashMap<>();
 
@@ -21,6 +22,12 @@ public class Main {
             }
         }
 
-        System.out.println(map);
+        // Remove avoidable
+        map.remove("avoidable");
+
+        // Print result
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " = " + entry.getValue());
+        }
     }
 }
