@@ -15,9 +15,8 @@ public class Main {
             bst.add(value);
         }
 
-        System.out.println("Inorder Traversal:");
-        bst.printInOrder(bst.root);
+        boolean found = bst.search(bst.root, 63);
 
-        System.out.println("\nSize = " + bst.size(bst.root));
+        System.out.println("Found = " + found);
     }
 }
